@@ -1,7 +1,41 @@
 <template>
   <!-- your answer -->
+  <v-container>
+    <v-row>
+      <v-col
+        v-for="product in bestSellerProducts"
+        :key="product.id"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
+      >
+        <StoreItem :product="product" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts" setup>
 // your answer
+import { defineComponent, computed } from 'vue';
+import StoreItem from '@/components/StoreItem.vue'; // Assuming StoreItem component is imported
+import { useProductStore } from '@/stores/ProductStore'; // Import your product store
+
+export default defineComponent({
+  components: {
+    StoreItem,
+  },
+  setup() {
+    const productStore = useProductStore();
+
+    const bestSellerProducts = computed(() => {
+      return productStore.getAllProducts().filter(product => product.rating > 4.5);
+    });
+
+    return {
+      bestSellerProducts,
+    };
+  },
+});
 </script>
