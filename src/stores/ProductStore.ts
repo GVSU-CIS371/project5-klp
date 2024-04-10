@@ -9,11 +9,16 @@ export const useProductStore = defineStore("ProductStore", {
   }),
 
   actions: {
+    /*
     init(): void {
       this.products = initProducts.map((productData, index) => ({
         id: 'product_${index + 1}',
         data: productData,
       }));
+    },
+    */
+    init() {
+      return this.products = initProducts;
     },
     
     filterByCategory(category: string): ProductDoc[] {

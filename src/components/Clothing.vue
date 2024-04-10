@@ -18,24 +18,12 @@
 
 <script lang="ts" setup>
 // your answer
-import { defineComponent, computed } from 'vue';
-import StoreItem from '@/components/StoreItem.vue'; // Assuming StoreItem component is imported
-import { useProductStore } from '@/stores/ProductStore'; // Import your product store
+//import { defineComponent, computed } from 'vue';
+import StoreItem from './StoreItem.vue'; // Assuming StoreItem component is imported
+import { useProductStore } from '../stores/ProductStore'; // Import your product store
 
-export default defineComponent({
-  components: {
-    StoreItem,
-  },
-  setup() {
-    const productStore = useProductStore();
+const productStore = useProductStore();
 
-    const filteredProducts = computed(() => {
-      return productStore.filterByCategory('Clothing');
-    });
+const filteredProducts = productStore.filterByCategory('Clothing');
 
-    return {
-      filteredProducts,
-    };
-  },
-});
 </script>

@@ -19,39 +19,10 @@
 
 <script lang="ts" setup>
 // your answer
-import { defineComponent } from 'vue';
-import StoreItem from '@/components/StoreItem.vue'; // Assuming StoreItem component is imported
+//import { defineComponent } from 'vue';
+import StoreItem from './StoreItem.vue'; // Assuming StoreItem component is imported
+import { useProductStore } from '../stores/ProductStore';
 
-export default defineComponent({
-  components: {
-    StoreItem,
-  },
-  data() {
-    return {
-      products: [
-        {
-          id: '1',
-          name: 'Product A',
-          description: 'This is a product description.',
-          price: 29.99,
-          rating: 4.5,
-          stock: 10,
-          image: '/path/to/image1.jpg',
-          category: 'Electronics',
-        },
-        {
-          id: '2',
-          name: 'Product B',
-          description: 'Another product description.',
-          price: 39.99,
-          rating: 3.8,
-          stock: 5,
-          image: '/path/to/image2.jpg',
-          category: 'Clothing',
-        },
-        // Add more products as needed
-      ],
-    };
-  },
-});
+//products is a productdoc with all products in data-init
+const products = useProductStore().init();
 </script>
