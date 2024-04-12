@@ -17,10 +17,8 @@
 </template>
 
 <script lang="ts" setup>
-// your answer
-//import { defineComponent, computed } from 'vue';
-import StoreItem from './StoreItem.vue'; // Assuming StoreItem component is imported
-import { useProductStore } from '../stores/ProductStore'; // Import your product store
+import StoreItem from './StoreItem.vue'; 
+import { useProductStore } from '../stores/ProductStore'; 
 
 const productStore = useProductStore();
 

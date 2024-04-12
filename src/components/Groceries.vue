@@ -3,7 +3,7 @@
   <v-container>
     <v-row>
       <v-col
-        v-for="product in filteredProducts"
+        v-for="product in groceries"
         :key="product.id"
         cols="12"
         sm="6"
@@ -17,12 +17,11 @@
 </template>
 
 <script lang="ts" setup>
-// your answer
-//import { defineComponent, computed } from 'vue';
-import StoreItem from './StoreItem.vue'; // Assuming StoreItem component is imported
-import { useProductStore } from '../stores/ProductStore'; // Import your product store
+
+import StoreItem from './StoreItem.vue'; 
+import { useProductStore } from '../stores/ProductStore'; 
 
 const productStore = useProductStore();
-
-const filteredProducts = productStore.filterByCategory('Groceries');;
+const groceries = 
+productStore.filterByCategory('Groceries');
 </script>

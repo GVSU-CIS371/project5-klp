@@ -18,11 +18,11 @@
 </template>
 
 <script lang="ts" setup>
-// your answer
-//import { defineComponent } from 'vue';
-import StoreItem from './StoreItem.vue'; // Assuming StoreItem component is imported
+
+import StoreItem from './StoreItem.vue'; 
 import { useProductStore } from '../stores/ProductStore';
 
-//products is a productdoc with all products in data-init
-const products = useProductStore().init();
+const productStore = useProductStore();
+productStore.init(); 
+const products = productStore.products;
 </script>
